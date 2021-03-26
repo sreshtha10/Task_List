@@ -42,9 +42,33 @@ function subItem(e){
     </a>`;
 
     document.querySelector('ul.collection').appendChild(newListItem);
-
-
     e.preventDefault();
+
+
+    // add to local storage as well.
+    
+}
+
+
+
+// clear task button
+
+const clearBtn = document.querySelector('a:last-child');
+
+//console.log(clearBtn.innerHTML);
+
+clearBtn.addEventListener('click',clear);
+
+
+function clear(e){
+    let items = document.querySelectorAll('ul.collection li.collection-item');
+
+    items.forEach(function(item){
+        item.remove();
+    });
+
+
+    // also delete it from storage.
     
 }
 
