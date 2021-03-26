@@ -86,7 +86,7 @@ function subItem(e){
 
 const clearBtn = document.querySelector('a:last-child');
 
-//console.log(clearBtn.innerHTML);
+console.log(clearBtn.innerHTML);
 
 clearBtn.addEventListener('click',clear);
 
@@ -97,10 +97,8 @@ function clear(e){
     items.forEach(function(item){
         item.remove();
     });
-
-
     // also delete it from storage.
-
+    localStorage.clear();
 }
 
 
