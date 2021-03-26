@@ -32,10 +32,24 @@ function delItem (e){
     
     if(e.target.parentElement.classList.contains('delete-item')){
         //console.log('delete');
+
         // deletion logic
         e.target.parentElement.parentElement.remove();
-        // delete from localStorage as well
 
+        // delete from localStorage as well
+        let str =  (e.target.parentElement.parentElement.textContent).trim();
+        //console.log(str);
+        const index = tasks.findIndex(id => id == str);
+        
+        //console.log(index);
+
+        tasks.splice(index,1);
+        localStorage.setItem('tasks',JSON.stringify(tasks));
+
+        //console.log(str);
+
+
+        
     }
 }
 
@@ -56,7 +70,10 @@ function subItem(e){
     // read the text inside 
     let newTask = (document.getElementById('task')).value;
     //console.log(newTask);
-
+    if(newTask === ""){
+        alert('Please enter something');
+        return;
+    }
     const newListItem = document.createElement('li');
     newListItem.className = 'collection-item';
     
@@ -73,32 +90,28 @@ function subItem(e){
 
     tasks.push(newTask);
 
-    localStorage.setItem('tasks',JSON.stringify(tasks));
-
-
-
-    
+    localStorage.setItem('tasks',JSON.stringify(tasks)); 
 }
 
 
 
 // clear task button
-
-const clearBtn = document.querySelector('a:last-child');
-
-console.log(clearBtn.innerHTML);
-
-clearBtn.addEventListener('click',clear);
+const clearBtn = document.getElementById('123');
+clearBtn.addEventListener('click',clearList);
 
 
-function clear(e){
-    let items = document.querySelectorAll('ul.collection li.collection-item');
+function clearList(e){
+    // let items = document.querySelectorAll('ul.collection li.collection-item');
 
-    items.forEach(function(item){
-        item.remove();
-    });
+    // items.forEach(function(item){
+    //     item.remove();
+    // });
+
     // also delete it from storage.
     localStorage.clear();
+    window.location.reload();
+    
 }
 
 
+//console.log(typeof []);
