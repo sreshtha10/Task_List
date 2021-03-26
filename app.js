@@ -1,7 +1,7 @@
-// delete item
+// variable to store the list of tasks which I will later store in the local storage.
 let tasks = JSON.parse(localStorage.getItem('tasks'));
 
-// init 
+// INIT - it will check if any tasks are present in local storage and if found I will display them to the user. Otherwise I will intialize the tasks array.
 
 function init(){
     if(tasks !== null){
@@ -23,9 +23,8 @@ function init(){
 
 init();
 
+// DELETE TASKS.
 const collectionItem  = document.querySelector('.collection');
-
-
 collectionItem.addEventListener('click',delItem);
 
 function delItem (e){
@@ -53,13 +52,10 @@ function delItem (e){
     }
 }
 
-
+// ADDING TASKS
 // adding to the list
 
 const addItem = document.getElementsByTagName('input');
-
-
-
 addItem[1].addEventListener('click',subItem);
 
 function subItem(e){
@@ -94,6 +90,7 @@ function subItem(e){
 }
 
 
+// CLEAR TASKS
 
 // clear task button
 const clearBtn = document.getElementById('123');
@@ -112,6 +109,7 @@ function clearList(e){
     window.location.reload();
     
 }
+
 
 
 //console.log(typeof []);
