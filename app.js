@@ -1,4 +1,27 @@
 // delete item
+let tasks = JSON.parse(localStorage.getItem('tasks'));
+
+// init 
+
+function init(){
+    if(tasks !== null){
+        tasks.forEach(function(task){
+            const newListItem = document.createElement('li');
+            newListItem.className = 'collection-item';
+            newListItem.innerHTML = `${task}
+            <a href="#" class="delete-item secondary-content">
+            <i class="fa fa-remove"></i>
+            </a>`;
+            document.querySelector('ul.collection').appendChild(newListItem);
+        })
+    }
+    else{
+        tasks = [];
+    }
+}
+
+
+init();
 
 const collectionItem  = document.querySelector('.collection');
 
@@ -12,6 +35,7 @@ function delItem (e){
         // deletion logic
         e.target.parentElement.parentElement.remove();
         // delete from localStorage as well
+
     }
 }
 
@@ -46,6 +70,13 @@ function subItem(e){
 
 
     // add to local storage as well.
+
+    tasks.push(newTask);
+
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+
+
+
     
 }
 
@@ -69,7 +100,7 @@ function clear(e){
 
 
     // also delete it from storage.
-    
+
 }
 
 
