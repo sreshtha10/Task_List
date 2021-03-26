@@ -12,7 +12,27 @@
 </head>
 
 <body>
-  
+  <style>
+    .container {padding-top: 100px;}
+    h1 {font-family: cursive;
+        padding-left:780px;
+    }
+    table {font-family: cursive;}
+    body{
+      background-image: url("https://i.pinimg.com/originals/0f/73/fa/0f73fa8ea597135bad5702fee3df9328.jpg");
+    }
+    .container{
+      opacity: 0.5;
+      font-weight: bold;
+      font-size: large;
+    }
+
+    li {
+      color: black;
+      font-weight: bold;
+    }
+    </style>
+  <h1><b>Task List</b></h1>
   <div class="container">
     <div class="row">
       <div class="col s12">
@@ -22,7 +42,7 @@
             <div class="row">
               <form id="task-form">
                 <div class="input-field col s12">
-                  <input type="text" name="task" id="task" value="Walk the dog">
+                  <input type="text" name="task" id="task" value="">
                   <label for="task">New Task</label>
                 </div>
             </div>
@@ -42,9 +62,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="app.js"></script>
-  
-  
-
 <table>
     <tr>
       <th>
@@ -53,6 +70,11 @@
     </tr>
 </table>
 
+
 </body>
+
+
+
+
 
 </html>
